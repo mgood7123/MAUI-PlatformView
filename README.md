@@ -32,12 +32,18 @@ usage:
         public Host() : base(() => new UIKit.UILabel()) {}
 #endif
     public string? Text {
+            // the NativeView property exposes the native view we passed
+            //
+            //   [ PlatformView<UIKit.UILabel> ]
+            //   |  exposes                    |
+            //   [ UIKit.UILabel NativeView    ]
+            //
+            // luckily both TextBlock, TextView, and UILabel all have a Text property
             get => NativeView.Text;
             set {
                 NativeView.Text = value ?? "";
             }
         }
     }
-
 }
 ```
