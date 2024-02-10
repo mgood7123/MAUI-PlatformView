@@ -20,6 +20,12 @@ usage:
         public Host() : base(() => new Microsoft.UI.Xaml.Controls.TextBlock()) {}
 #elif ANDROID
     public class Host : PlatformView<Android.Widget.TextView> {
+        // Android:
+        // PlatformView {
+        //   public static Android.Content.Context Context => Android.App.Application.Context;
+        //   ...
+        // }
+        //
         public Host() : base(() => new Android.Widget.TextView(Context)) {}
 #elif IOS || MACCATALYST
     public class Host : PlatformView<UIKit.UILabel> {
